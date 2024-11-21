@@ -1,5 +1,15 @@
-module.exports = ({ app }) => {
-  app.get('/', (req, res, next) => {
-    
-  })
+const express = require('express');
+
+const router = express.Router();
+
+module.exports = () => {
+  router.get('/', (req, res, next) => {
+    try {
+
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  return router;
 };
