@@ -1,3 +1,5 @@
+const { getMedianData } = require('./median');
+
 class HistoricalDataAnalytics {
   analyze(data = []) {
     if (!data || data.length === 0) {
@@ -14,6 +16,8 @@ class HistoricalDataAnalytics {
 
       analytics.push(this.analyzeBunch(bunch));
     }
+
+    return analytics;
   }
 
   getBunchSize(total) {
@@ -25,7 +29,16 @@ class HistoricalDataAnalytics {
   }
 
   analyzeBunch(data) {
-    
+    const { median1, median2 } = getMedianData(data.map(item => Number.parseFloat(item.price)));
+
+    return {
+      startTimestamp: Math.max(...data.map(item => item.time)),
+      endTimestamp: Math.min(...data.map(item => item.time)),
+      median1,
+      median2,
+      changePercent: median1 / median2 - 1,
+      isBull: median1 > median2,
+    };
   }
 }
 

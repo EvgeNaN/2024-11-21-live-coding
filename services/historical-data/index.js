@@ -9,9 +9,6 @@ class HistoricalData {
   async getRecentDataAnalytics(limit) {
     const data = await fetcher.fetch(limit);
 
-    console.dir(data.slice(0, 20));
-    console.dir('> data');
-
     return analytics.analyze(data);
   }
 }
