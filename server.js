@@ -8,11 +8,13 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 
-// controllers
+require('./api/controllers')({ app });
 
 app.use(require('./api/mw/error'));
 
 const main = async () => {
+  // init db here if needed;
+
   app.listen(process.env.PORT, () => {
     console.log('Server is running');
   });
