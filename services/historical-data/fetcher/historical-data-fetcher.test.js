@@ -39,6 +39,9 @@ describe('historical-data-fetcher.test', () => {
   test('returned data', async () => {
     const res = await HistoricalDataFetcher.fetch();
 
+    console.dir(res)
+    console.dir('> res')
+
     expect(res).toBe(mockData);
   });
 });
