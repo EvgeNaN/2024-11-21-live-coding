@@ -1,4 +1,4 @@
-const  getMedianData = (numbersList = []) => {
+const getMedianData = (numbersList = []) => {
   if (numbersList.length === 0) {
     return {
       median1: null,
@@ -25,7 +25,7 @@ const getMedian = numbersList => {
   }
 
   const i1 = middle;
-  const i2 = i1 + 1;
+  const i2 = i1 - 1;
 
   return (numbersList[i1] + numbersList[i2]) / 2;
 };

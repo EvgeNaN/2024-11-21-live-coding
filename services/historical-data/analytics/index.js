@@ -32,8 +32,8 @@ class HistoricalDataAnalytics {
     const { median1, median2 } = getMedianData(data.map(item => Number.parseFloat(item.price)));
 
     return {
-      startTimestamp: Math.max(...data.map(item => item.time)),
-      endTimestamp: Math.min(...data.map(item => item.time)),
+      startTimestamp: Math.min(...data.map(item => item.time)),
+      endTimestamp: Math.max(...data.map(item => item.time)),
       median1,
       median2,
       changePercent: median1 / median2 - 1,
